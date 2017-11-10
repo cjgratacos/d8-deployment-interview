@@ -1,0 +1,5 @@
+name: Weather
+type: module
+description: Weather Module
+core: 8.x
+package: Weather

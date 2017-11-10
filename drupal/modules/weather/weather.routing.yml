@@ -1,0 +1,11 @@
+
+weather.weather_config_form:
+  path: '/admin/config/weather'
+  defaults:
+    _form: '\Drupal\weather\Form\WeatherConfigForm'
+    _title: 'WeatherConfigForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+

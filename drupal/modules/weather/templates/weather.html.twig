@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Default theme implementation for an item list.
+ *
+ * Available variables:
+ * - location: The current location
+ * - temperature: The temperature
+ * - icon: Thew weather icon URL
+ * - weather_description: Short Description of the current weather
+ * - attributes: HTML attributes to be applied to the list.
+ * @see template_preprocess_weather()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<div>
+    <div>{{ location }}</div>
+    <div><img src="{{ icon }}" width="50" height="50">{{ temperature }}</div>
+    <div>{{ weather_description }}</div>
+    <div>Icon</div>
+</div>

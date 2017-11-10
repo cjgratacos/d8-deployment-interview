@@ -1,0 +1,14 @@
+global-styling:
+   version: 1.0
+   css:
+    theme:
+      #css/your_style_sheet.css : {}
+   js:
+     #js/your_js.js : {}
+no:
+  version: 1.0
+   css:
+    theme:
+      #js/your_js.js : {}
+   js:
+     #js/your_js.js : {}

@@ -1,0 +1,11 @@
+services:
+  weather.config:
+    class: Drupal\weather\Config\WeatherConfig
+    arguments: ['@config.factory', 'weather.config']
+  weather.open_weather_map_service:
+    class: Cmfcmf\OpenWeatherMap
+  weather.geo_service:
+    class: Drupal\weather\Service\Geo\GeoPluginService
+  weather.service:
+    class: Drupal\weather\Service\WeatherService
+    arguments: ['@weather.config', '@weather.geo_service', '@weather.open_weather_map_service']

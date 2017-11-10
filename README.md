@@ -9,7 +9,10 @@ For running this project the following is needed:
 3. [lando](https://github.com/lando/lando)
 
 ### Run
-For running the project in your local environment follow the steps:
+For running the proj
+                                                                                              
+ [ERROR] Command "gm", is not a valid command name.                                           
+                                                    ect in your local environment follow the steps:
 ```bash
 # Root Folder
 cd <d8-deployment-interview>
