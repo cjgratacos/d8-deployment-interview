@@ -30,7 +30,6 @@ class WeatherNodeContextBlock extends WeatherBlock {
     $enable_weather = false;
 
     foreach ($node->getFields() as $key => $val) {
-     \Drupal::logger('Context')->error($val->getFieldDefinition()->getType().' Context: '. print_r($val->getValue(),1));
      if ($val->getFieldDefinition()->getType() == 'weather' && $val->getValue()[0]['value']) {
       $enable_weather = true;
      }
