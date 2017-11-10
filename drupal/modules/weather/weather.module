@@ -39,3 +39,15 @@ function weather_theme() {
     ],
   ];
 }
+
+/**
+ * Implements template_preprocess_ELEMENT_ID()
+ * @param $variables
+ */
+function template_preprocess_weather(&$variables) {
+  // Add Caching Context
+  $variables['cache'] = [
+    'contexts' => ['ip'],
+    'max-age' => 3600
+  ];
+}

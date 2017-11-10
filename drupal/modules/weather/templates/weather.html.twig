@@ -15,9 +15,26 @@
  */
 #}
 
-<div>
-    <div>{{ location }}</div>
-    <div><img src="{{ icon }}" width="50" height="50">{{ temperature }}</div>
-    <div>{{ weather_description }}</div>
-    <div>Icon</div>
+{%
+    set classes = [
+        'block',
+        'block-' ~ configuration.provider|clean_class,
+        'block-' ~ plugin_id|clean_class,
+        'row'
+    ]
+%}
+<div{{ attributes.addClass(classes) }}>
+    <div class="col-md-auto">
+        <div class="card m-1 pl-3 pr-3">
+            <div class="row no-gutters">
+                <div class="col-12 text-center">
+                    <img src="{{ icon }}" width="50" height="50">
+                    <h3>{{ temperature }}</h3>
+                    <p>{{ location }}</p>
+                    <p>{{ weather_description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+

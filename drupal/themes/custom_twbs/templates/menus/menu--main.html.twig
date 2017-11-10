@@ -1,0 +1,61 @@
+
+
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ menus.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+    {% import _self as menus %}
+    {% if items %}
+        {% if menu_level == 0 %}
+            <ul{{ attributes.addClass('navbar-nav') }}>
+        {% else %}
+            <ul{{ attributes.addClass('dropdown-menu') }}>
+        {% endif %}
+        {% for item in items %}
+            {%
+            set item_classes = [
+            item.is_expanded? 'expanded',
+            item.is_expanded and menu_level == 0 ? 'dropdown',
+            item.in_active_trail ? 'active',
+            'nav-item'
+            ]
+            %}
+            <li{{ item.attributes.addClass(item_classes) }}>
+            {% if menu_level == 0 and item.is_expanded %}
+                <a href="{{ item.url }}" class="dropdown-toggle" data-toggle="dropdown">{{ item.title }} <span class="caret"></span></a>
+            {% else %}
+                <a href="{{ item.url }}" class="nav-link">{{ item.title }}</a>
+            {% endif %}
+            {% if item.below %}
+                {{ menus.menu_links(item.below, attributes.removeClass('navbar-nav'), menu_level + 1) }}
+            {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}
+
+                {#<ul class="navbar-nav mr-auto">#}
+                {#<li class="nav-item active">#}
+                {#<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>#}
+                {#</li>#}
+                {#<li class="nav-item">#}
+                {#<a class="nav-link" href="#">Link</a>#}
+                {#</li>#}
+                {#<li class="nav-item">#}
+                {#<a class="nav-link disabled" href="#">Disabled</a>#}
+                {#</li>#}
+                {#<li class="nav-item dropdown">{{ item.title }}#}
+                {#<a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>#}
+                {#<div class="dropdown-menu" aria-labelledby="dropdown01">#}
+                {#<a class="dropdown-item" href="#">Action</a>#}
+                {#<a class="dropdown-item" href="#">Another action</a>#}
+                {#<a class="dropdown-item" href="#">Something else here</a>#}
+                {#</div>#}
+                {#</li>#}
+{#</ul>#}

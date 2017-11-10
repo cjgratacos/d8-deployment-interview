@@ -52,10 +52,7 @@ class WeatherFieldFormatter extends FormatterBase {
         ]),
       '#temperature' => $weather_info->temperature->getFormatted(),
       '#weather_description' => $weather_info->weather->description,
-      '#icon' => $weather_info->weather->getIconUrl(),
-      '#cache'=> [
-        'max-age' => 0
-      ]
+      '#icon' => $weather_info->weather->getIconUrl()
     ];
   }
 

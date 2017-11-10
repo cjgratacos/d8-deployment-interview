@@ -1,0 +1,61 @@
+
+<div id="page">
+    {# Navbar #}
+    {% if page.navigation %}
+        <nav class="navbar navbar-fixed-top navbar-expand-md navbar-dark bg-primary">
+            {{ page.navigation }}
+        </nav>
+    {% endif %}
+
+    {# Header #}
+    {% if page.header %}
+        {{ page.header }}
+    {% endif %}
+
+    {# Highlighthed #}
+    {% if page.highlighted %}
+        {{ page.highlighted }}
+    {% endif %}
+
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            {# Sidebar left #}
+            {% if page.sidebar_left %}
+                <div class="col-sm-2 fixed pl-0 py-3">
+                    {{ page.sidebar_left }}
+                </div>
+            {% endif %}
+
+            {# Content #}
+            {% if page.content %}
+                <div class="col fluid bg-faded py-3">
+                    {{ page.content }}
+                </div>
+            {% endif %}
+
+            {# Sidebar right #}
+            {% if page.sidebar_right %}
+                <div class="col-sm-2 fixed py-3">
+                    {{ page.sidebar_right }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {# Footer #}
+    {% if page.footer %}
+        {{ page.footer }}
+    {% endif %}
+
+</div>
+
+
+{# Body #}
+{#<div class="container">#}
+
+        {#<div class="starter-template">#}
+                {#<h1>Bootstrap starter template</h1>#}
+                {#<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>#}
+        {#</div>#}
+
+{#</div>#}

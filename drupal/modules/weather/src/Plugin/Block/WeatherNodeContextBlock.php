@@ -23,14 +23,15 @@ class WeatherNodeContextBlock extends WeatherBlock {
     /** @var \Drupal\node\NodeInterface $node */
    $node = \Drupal::routeMatch()->getParameter('node');
 
-   if (!isset($node)) {
+    if (!isset($node)) {
      return [];
    }
 
-   $enable_weather = false;
+    $enable_weather = false;
 
-   foreach ($node->getFields() as $key => $val) {
-     if ($val->getFieldDefinition()->getType() == 'weather' && $val->getValue()) {
+    foreach ($node->getFields() as $key => $val) {
+     \Drupal::logger('Context')->error($val->getFieldDefinition()->getType().' Context: '. print_r($val->getValue(),1));
+     if ($val->getFieldDefinition()->getType() == 'weather' && $val->getValue()[0]['value']) {
       $enable_weather = true;
      }
    }
@@ -40,5 +41,17 @@ class WeatherNodeContextBlock extends WeatherBlock {
    }
 
    return parent::build();
+  }
+
+  public function getCacheContexts() {
+    return [];
+  }
+
+  public function getCacheTags() {
+   return [];
+  }
+
+  public function getCacheMaxAge() {
+    return 0;
   }
 }

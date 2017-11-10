@@ -1,0 +1,16 @@
+
+{%
+    set classes = [
+        'block',
+        'block-' ~ configuration.provider|clean_class,
+        'block-' ~ plugin_id|clean_class,
+        'd-flex'
+    ]
+%}
+{% block content %}
+    <div{{ attributes.addClass(classes) }}>
+        {% if site_name %}
+            <a class="navbar-brand" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+        {% endif %}
+    </div>
+{% endblock %}

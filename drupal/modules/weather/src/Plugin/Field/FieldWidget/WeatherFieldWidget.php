@@ -31,8 +31,9 @@ class WeatherFieldWidget extends WidgetBase {
         '#type' => 'checkbox',
         '#default_value' => !empty($items[0]->value),
       ];
-        $element['value']['#title'] = '';//$this->fieldDefinition->getLabel();
-        $element['value']['#description'] = $this->t('Display Weather Information');
+
+    $element['value']['#title'] = $this->t('Display Weather Information');
+    $element['value']['#title_display'] = 'after';
     return $element;
   }
 }

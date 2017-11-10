@@ -2,13 +2,8 @@ global-styling:
    version: 1.0
    css:
     theme:
-      #css/your_style_sheet.css : {}
+      node_modules/bootstrap/dist/css/bootstrap.css: {}
+      node_modules/bootstrap/dist/css/bootstrap-grid.css: {}
+      node_modules/bootstrap/dist/css/bootstrap-reboot.css: {}
    js:
-     #js/your_js.js : {}
-no:
-  version: 1.0
-   css:
-    theme:
-      #js/your_js.js : {}
-   js:
-     #js/your_js.js : {}
+      node_modules/bootstrap/dist/js/bootstrap.js: {}

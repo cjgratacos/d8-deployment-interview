@@ -7,9 +7,10 @@ For running this project the following is needed:
 1. [Composer](https://getcomposer.org/download/)
 2. [Docker](https://www.docker.com/)
 3. [lando](https://github.com/lando/lando)
-
+4. [NodeJS](https://nodejs.org/en/download/)
+5. Yarn
 ### Run
-For running the proj
+For running the project
                                                                                               
  [ERROR] Command "gm", is not a valid command name.                                           
                                                     ect in your local environment follow the steps:
@@ -42,6 +43,18 @@ lando drush si --db-url=mysql://drupal8:drupal8@database:3306/drupal8 --account-
 # 2. Edit the <d8-deployment-interview>/web/sites/default/settings.php to contain the DB Connection Info. Follow the documentation on the settings.php file on how to set it up.
 #
 # 3. If configuration from a previous Drupal Environment exist, the drupal 8 composer project sets the config sync directory to <d8-deployment-interview>/config/sync, just have to drop the configuration there and import it with Drush or by the admin UI in /admin/config/development/configuration
+```
+
+### Install Theme Dependencies
+For installing the theme's dependencies:
+```bash
+# Theme Folder
+cd <d8-deployment-interview>/drupal/themes/custom_twbs
+
+# Install dependencies with Yarn
+yarn install
+
+# Done
 ```
 
 ### Environment

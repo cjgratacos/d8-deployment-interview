@@ -1,0 +1,19 @@
+
+{%
+set classes = [
+'block',
+'block-' ~ configuration.provider|clean_class,
+'block-' ~ plugin_id|clean_class,
+]
+%}
+
+{% block content %}
+    <div{{ attributes.addClass(classes) }}>
+        <button class="navbar-toggler order-3" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse justify-content-center" id="collapsingNavbar">
+            {{ content }}
+        </div>
+    </div>
+{% endblock %}
